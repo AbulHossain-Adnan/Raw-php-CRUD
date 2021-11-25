@@ -32,7 +32,33 @@ if(isset($_GET['edit'])){
     <title>Hello, world!</title>
   </head>
   <body>
-  
+  <?php 
+  if (isset($_POST['update'])) {
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $id=$_GET['edit'];
+    $record="SELECT * FROM user id=$id";
+    $result=mysqli_query($db,$record);
+    $row=mysqli_fetch_assoc($result);
+    $name=$row['name'];
+    $address=$row['address'];
+   
+
+
+$sql="UPDATE crud  SET  id=$id, name='$name',address='$address',city='$city' where id=$id";
+   $result=mysqli_query($db,$sql);
+
+   if($result){
+    echo "success";
+    header('location:index.php');
+    
+   }
+   else{
+     die("Connection failed: " . $db->connect_error);
+   }
+   }
+?>
 <div class="row">
   <div class="col-sm-8 m-auto">
     <div class="card">
@@ -66,28 +92,7 @@ if(isset($_GET['edit'])){
 
  
 
-<?php 
-  if (isset($_POST['update'])) {
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $city = $_POST['city'];
-    $id=$_GET['edit'];
-   
 
-
-$sql="UPDATE crud  SET  id=$id, name='$name',address='$address',city='$city' where id=$id";
-   $result=mysqli_query($db,$sql);
-
-   if($result){
-    echo "success";
-    header('location:index.php');
-    
-   }
-   else{
-   	 die("Connection failed: " . $db->connect_error);
-   }
-   }
-?>
 
 
 
