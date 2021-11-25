@@ -1,0 +1,57 @@
+Raw php crud:
+-------------
+
+data get: $name=$_GET['name'];
+
+data post: $name=$_POST['name'];
+
+------------------------------------------------
+
+first database er sathe connect korte hobe:
+-------------------------------------------
+$db_connect=mysqli_connect('localhost,'root','','databasename');
+----------------------------------------------------------------
+
+localhost->server name;
+---------
+root->user name;
+----
+'' ->password na thakle empty thakbe;
+----
+'dbname->database er name;
+--------
+
+--------------------------------------------------------------------
+
+SQL query execute korte duita jinis lage 1.db connect,2.sql query.
+-------------------------------------------------------------------
+
+$query_execute= mysqli_query($db,$sql);
+---------------------------
+
+Inser Query:
+------------
+$sql="INSERT INTO tablename (name,email,password) VALUES('$adnan','$email','$password')";
+
+---------------------------------------------------------------------------
+Edit query:
+------------
+$sql="SELECT * FROM tablename WHERE id=1";
+-------------------------------------------
+
+Update Query:
+-------------
+
+$sql="UPDATE tablename SET id=$id name='$name',email='$email',password='$password'
+WHERE id=$id";
+------------------------------------------------------------------------
+
+DeleteQuery:
+------------
+
+$sql="DELETE * FROM tablename WHERE id=$id";
+--------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------
