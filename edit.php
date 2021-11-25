@@ -1,6 +1,24 @@
 <?php 
   include "db_con.php";
 ?>
+<?php 
+if(isset($_GET['edit'])){
+	$id=$_GET['edit'];
+	$sql="SELECT * FROM crud WHERE id=$id";
+	 $record = mysqli_query($db,$sql);
+	  if($record){
+    	$row=mysqli_fetch_assoc($record);
+    	$name=$row['name'];
+    	$address=$row['address'];
+    	$city=$row['city'];
+
+    }
+    else{
+    	 die("Connection failed: " . $db->connect_error);
+
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,16 +45,16 @@
           <form method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="text" name="name" class="form-control" id="" aria-describedby="emailHelp" >
+    <input type="text" name="name" class="form-control" id="" aria-describedby="emailHelp" value="<?php echo $name; ?>">
 
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">address</label>
-    <input type="text" name="address" class="form-control" id="">
+    <input type="text" name="address" class="form-control" id="" value="<?php echo $address; ?>">
   </div>
     <div class="form-group">
     <label for="exampleInputPassword1">city</label>
-    <input type="text" name="city" class="form-control" id="" >
+    <input type="text" name="city" class="form-control" id="" value="<?php echo $city; ?>">
   </div>
 
   <button type="submit" name="update" class="btn btn-primary">update</button>
@@ -46,15 +64,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
+ 
 
 <?php 
   if (isset($_POST['update'])) {
@@ -62,6 +72,8 @@
     $address = $_POST['address'];
     $city = $_POST['city'];
     $id=$_GET['edit'];
+   
+
 
 $sql="UPDATE crud  SET  id=$id, name='$name',address='$address',city='$city' where id=$id";
    $result=mysqli_query($db,$sql);
@@ -89,7 +101,7 @@ $sql="UPDATE crud  SET  id=$id, name='$name',address='$address',city='$city' whe
     </div>
   </div>
 </div>
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
