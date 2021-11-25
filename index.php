@@ -1,3 +1,6 @@
+<?php 
+  include "db_con.php";
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,51 +14,61 @@
     <title>Hello, world!</title>
   </head>
   <body>
-<div class="row">
+   <div class="row">
   <div class="col-sm-8 m-auto">
-    <div class="card">
-      <div class="card-body">
-        <div class="card  mb-3">
-  <div class="card-header text-white bg-primary text-center">PHP CRUD</div>
+   <div class="card  mb-3">
+  <div class="card-header text-white bg-primary text-center"></div>
   <div class="card-body">
-          <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="text" name="name" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter name">
+  	<a type="button
+  	" class="btn btn-success" href="create.php">Add user</a>
+   <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">city</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+     
+      
+      	 <?php 
 
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">address</label>
-    <input type="text" name="address" class="form-control" id="" placeholder="address">
-  </div>
-    <div class="form-group">
-    <label for="exampleInputPassword1">city</label>
-    <input type="text" name="city" class="form-control" id="" placeholder="address">
-  </div>
+  $sql="SELECT * FROM crud";
+  $result=mysqli_query($db,$sql);
+  if($result){
+ 
+  while($row=mysqli_fetch_assoc($result)){
+  	$id=$row['id'];
+  	$name=$row['name'];
+  	$address=$row['address'];
+  	$city=$row['city'];
+  	echo '<tr>
+  	<td>'.$name.'</td>
+  	<td>'.$address.'</td>
+  	<td>'.$city.'</td>
+  	<td>
+  	<button class="btn btn-primary">edit</button>
+  	<button class="btn btn-danger">delete</button>
+  	</tr>';
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  }
+  	
+  }
+
+  ?>
+      
+   
+    </tr>
+
+  </tbody>
+</table>
   </div>
 </div>
-
-
-
-
-
-
-      </div>
-    </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
-    
 
 
     <!-- Optional JavaScript -->
