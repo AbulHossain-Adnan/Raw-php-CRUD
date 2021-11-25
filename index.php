@@ -52,13 +52,12 @@
   	<td>'.$city.'</td>
   	<td>
   	<button class="btn btn-primary">edit</button>
-  	<button class="btn btn-danger">delete</button>
+  
+  	<a class="btn btn-danger" href="delete.php?delete='.$id.'">delete</a>
   	</tr>';
 
   }
-  	
   }
-
   ?>
       
    
