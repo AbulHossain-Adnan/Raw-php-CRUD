@@ -44,11 +44,6 @@
 
 
 <?php 
- 
-  
-
-
-
   if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $address = $_POST['address'];
@@ -63,7 +58,6 @@ $sql="INSERT INTO crud (name, address, city) VALUES ('$name', '$address', '$city
     
    }
    }
-   
 ?>
 
   </div>

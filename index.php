@@ -32,7 +32,7 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+     
      
       
       	 <?php 
