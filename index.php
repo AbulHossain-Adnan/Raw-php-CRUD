@@ -51,9 +51,10 @@
   	<td>'.$address.'</td>
   	<td>'.$city.'</td>
   	<td>
-  	<button class="btn btn-primary">edit</button>
+  	
+  	<a class="btn btn-primary btn-sm" href="edit.php?edit='.$id.'">Edit</a>
   
-  	<a class="btn btn-danger" href="delete.php?delete='.$id.'">delete</a>
+  	<a class="btn btn-danger btn-sm" href="delete.php?delete='.$id.'">delete</a>
   	</tr>';
 
   }
