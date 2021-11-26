@@ -1,3 +1,5 @@
+<?php include "db_con.php"; ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +13,23 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    
+
+<?php
+if($_GET['edit']){
+	 $id=$_GET['edit'];
+	$record="SELECT * FROM user WHERE id=$id";
+	$result=mysqli_query($db,$record);
+	$row=mysqli_fetch_assoc($result);
+	$name=$row['name'];
+	$address=$row['address'];
+	
+}
+
+ ?>
+
+
+
+
 
 
 	<div class="row">
@@ -22,12 +40,12 @@
 						<form method="post">
 							<div class="form-group">
 								<label for="exampleInputEmail1">name</label>
-								<input type="text" class="form-control" name="name" aria-describedby="emailHelp"  value="">
+								<input type="text" class="form-control" name="name" aria-describedby="emailHelp"  value="<?php echo $name ?>">
 								
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">address</label>
-								<input type="text" class="form-control" id="" name="address" placeholder="address">
+								<input type="text" class="form-control" id="" name="address" placeholder="address" value="<?php echo $address ?>">
 							</div>
 						
 							<button type="submit" name="submit" class="btn btn-primary">update</button>
@@ -58,12 +76,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<!-- $id=$_GET['edit'];
-	$record="SELECT * FROM user WHERE id=$id";
-	$result=mysqli_query($db,$record);
-	$row=mysqli_fetch_assoc($result);
-	$name=$row['name'];
-	$address=$row['address']; -->
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
