@@ -13,6 +13,7 @@
       <div class="col-sm-8 m-auto">
         <div class="card">
           <div class="card-body">
+            <a class="btn btn-success btn-sm" href="user_create.php">New user create+</a>
             <table class="table">
               <thead>
                 <tr>

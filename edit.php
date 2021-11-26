@@ -39,10 +39,7 @@ if(isset($_GET['edit'])){
     $city = $_POST['city'];
     $id=$_GET['edit'];
     $record="SELECT * FROM user id=$id";
-    $result=mysqli_query($db,$record);
-    $row=mysqli_fetch_assoc($result);
-    $name=$row['name'];
-    $address=$row['address'];
+   
    
 
 

@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
 	$sql="INSERT INTO user (name,address) VALUES('$name','$address')";
 	$result=mysqli_query($db,$sql);
 	if($result){
-		echo "success";
+		header('location:user_display.php');
 	}
 	else{
 		die("Connection failed: " . $db->connect_error);
